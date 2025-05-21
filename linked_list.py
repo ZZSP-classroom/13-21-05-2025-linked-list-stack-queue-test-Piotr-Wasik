@@ -20,19 +20,23 @@ class LinkedList:
             new_node.next = self.head
             self.head = new_node
 
+
+    # Method to add a node at any index
+    # Indexing starts from 0.
     # Method to add a node at any index
     # Indexing starts from 0.
     def insertAtIndex(self, data, index):
         new_node = Node(data)
         current_node = self.head
         position = 0
+
         if position == index:
             self.insertAtBegin(data)
         else:
-            while(current_node != None and position+1 != index):
-                position = position+1
+            while current_node is not None and position + 1 != index:
+                position += 1
                 current_node = current_node.next
-            if current_node != None:
+            if current_node is not None:
                 new_node.next = current_node.next
                 current_node.next = new_node
             else:
@@ -47,7 +51,7 @@ class LinkedList:
         current_node = self.head
         while(current_node.next):
             current_node = current_node.next
-            current_node.next = new_node
+        current_node.next = new_node
 
     # Update node of a linked list
     # at given position
@@ -76,9 +80,9 @@ class LinkedList:
         if self.head is None:
             return
         current_node = self.head
-        while(current_node.next.next):
+        while current_node.next.next:
             current_node = current_node.next
-            current_node.next = None
+        current_node.next = None
 
     # Method to remove at given index
     def remove_at_index(self, index):
